@@ -23,5 +23,5 @@ jobs:
 
       - name: Run change detector script
         run: |
-          git diff --name-status HEAD^ HEAD > changes.txt
+          git diff --name-status HEAD~1 HEAD > file_changes.txt
           python main.py changes.txt
