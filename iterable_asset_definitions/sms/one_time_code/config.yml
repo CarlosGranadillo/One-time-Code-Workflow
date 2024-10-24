@@ -1,0 +1,16 @@
+sms_config:
+  provider: Twilio
+  api_key: your_api_key_here
+  sender_number: +1234567890
+  message_template: "Your one-time code is {{code}}"
+  code_length: 6
+  expiration_time: 300 # in seconds
+
+retry_policy:
+  max_attempts: 3
+  backoff_strategy: exponential
+  initial_delay: 5 # in seconds
+
+logging:
+  level: INFO
+  file: /var/log/sms_service.log
