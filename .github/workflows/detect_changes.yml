@@ -13,11 +13,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2  # Fetch the last 2 commits to enable git diff
 
-    #   - name: Set up Python
-    #     uses: actions/setup-python@v4
-    #     with:
-    #       python-version: '3.12'
+      # - name: Set up Python
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: '3.12'
 
       - name: Install dependencies
         run: |
@@ -25,5 +27,6 @@ jobs:
 
       - name: Run change detector script
         run: |
-          git diff --name-status HEAD~1 HEAD > file_changes.txt
+          git diff --name-status HEAD~1 HEAD > changes.txt
+          cat changes.txt  # Debug step to view the changes
           python main.py changes.txt
