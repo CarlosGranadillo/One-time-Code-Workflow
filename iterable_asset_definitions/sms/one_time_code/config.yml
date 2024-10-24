@@ -9,7 +9,7 @@ sms_config:
 retry_policy:
   max_attempts: 3
   backoff_strategy: exponential
-  initial_delay: 5 # in seconds
+  initial_delay: 5 # in sec
 
 logging:
   level: INFO
