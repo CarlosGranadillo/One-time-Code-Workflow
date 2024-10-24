@@ -1,6 +1,7 @@
 name: Detect Changes and Trigger Python Script
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - iterable_asset_definitions/**
