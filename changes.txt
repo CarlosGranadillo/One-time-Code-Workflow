@@ -1,0 +1,3 @@
+A	changes.txt
+A	iterable_asset_definitions/email/one_time_code/config.yml
+A	iterable_asset_definitions/email/one_time_code/email_content.html
