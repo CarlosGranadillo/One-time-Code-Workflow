@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2  # Fetch the last 2 commits to enable git diff
+          fetch-depth: 0  # Fetch full history for accurate branch comparison
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,6 +27,9 @@ jobs:
 
       - name: Run change detector script
         run: |
-          git diff --name-status HEAD~1 HEAD > changes.txt
+          # Fetch main branch for comparison
+          git fetch origin main
+          # Get all changes between the current branch and main
+          git diff --name-status origin/main...HEAD > changes.txt
           cat changes.txt  # Debug step to view the changes
           python main.py changes.txt
