@@ -1,7 +1,7 @@
 email:
   subject: "Your One-Time Code"
   body: |
-    Hello!!,
+    Hello,
 
     Your one-time code is: {{ code }}
 
